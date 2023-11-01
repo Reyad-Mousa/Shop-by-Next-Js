@@ -17,7 +17,9 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <ThemProvider>
           <Navbar />
-          {children}
+          <div className=" m-10 container flex  justify-center ">
+            {children}
+          </div>
           <Footer />
         </ThemProvider>
       </body>
