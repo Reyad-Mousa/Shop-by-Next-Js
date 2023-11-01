@@ -17,7 +17,7 @@ async function getData() {
 export default async function products() {
   const data = await getData();
   return (
-    <div className="sm:mx-20 my-10 container flex flex-wrap gap-3 justify-center ">
+    <div className="sm:mx-20 mx-0 my-10 container flex flex-wrap gap-3 justify-center ">
       {data.products.map((product) => (
         <Link
           href={`/products/${product.id}`}
