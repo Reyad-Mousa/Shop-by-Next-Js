@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import styles from "./page.module.css";
 
 async function getData() {
   const res = await fetch("https://dummyjson.com/products");
@@ -17,7 +18,7 @@ async function getData() {
 export default async function products() {
   const data = await getData();
   return (
-    <div className="my-10 container flex flex-wrap gap-3 justify-center ">
+    <div className=" my-10 container flex flex-wrap gap-3 justify-center ">
       {data.products.map((product) => (
         <Link
           href={`/products/${product.id}`}
@@ -25,7 +26,7 @@ export default async function products() {
           className=" flex-3 flex flex-col border-2 rounded-2xl border-purple-900  w-64"
         >
           <Image
-            className="w-full h-auto rounded-t-xl"
+            className={`${styles.image} hover:opacity-50 w-full h-auto rounded-t-xl`}
             src={product.thumbnail}
             priority
             width={300}
@@ -49,15 +50,16 @@ export default async function products() {
               {product.description}
             </p>
 
-            <a
+            <Link
               className="mt-3 py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800"
               href="#"
             >
               Go somewhere
-            </a>
+            </Link>
           </div>
         </Link>
       ))}
+      
     </div>
   );
 }

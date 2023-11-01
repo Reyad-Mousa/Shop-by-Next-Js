@@ -1,4 +1,5 @@
 import Image from "next/image";
+import styles from "./page.module.css";
 
 async function getData(id) {
   const res = await fetch(`https://dummyjson.com/products/${id}`);
@@ -25,26 +26,21 @@ export default async function product({ params }) {
   const product = await getData(params.id);
 
   return (
-    <div className=" sm:mx-20 my-10 flex overflow-hidden border-2 rounded-2xl border-purple-900  ">
+    <div className=" m-5  flex overflow-hidden border-2 rounded-2xl border-purple-900  ">
       <div className="p-4 md:p-5">
         <h3 className=" pb-16  font-bold text-2xl uppercase">
           {product.title}
         </h3>
-        <div className="flex flex-wrap border-2 rounded-2xl border-purple-900">
+        <div className="flex flex-wrap justify-center w-auto  border-2 rounded-2xl border-purple-900">
           {product.images.map((image) => (
             <Image
-              className="w-full m-2 h-auto rounded-xl"
+              className={` ${styles.image}  hover:scale-110 m-2 h-auto rounded-xl`}
               key={product.id}
               src={image}
               priority
               width={1000}
               height={1000}
               alt="Picture of the author"
-              style={{
-                maxHeight: "200px",
-                height: "200px",
-                maxWidth: "200px",
-              }}
             />
           ))}
         </div>
