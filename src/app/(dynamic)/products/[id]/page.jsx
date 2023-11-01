@@ -43,7 +43,7 @@ export default async function product({ params }) {
               style={{
                 maxHeight: "200px",
                 height: "200px",
-                width: "auto",
+                maxWidth: "200px",
               }}
             />
           ))}
