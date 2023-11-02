@@ -46,7 +46,7 @@ function Navbar() {
         </div>
       </div>
       {toggle && (
-        <div className=" sm:hidden  border-t-2 border-purple-300 py-2">
+        <div className=" sm:hidden flex flex-col   items-center  border-t-2 border-purple-300 py-2">
           {nav_links.map((links) => (
             <Link
               onClick={() => handel()}

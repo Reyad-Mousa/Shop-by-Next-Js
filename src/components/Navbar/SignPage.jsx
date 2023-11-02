@@ -3,7 +3,7 @@ import React from "react";
 
 const SignPage = () => {
   return (
-    <div>
+    <div className=" sm:block hidden ">
       <Link
         href="#"
         className="text-white-800 text-sm font-semibold border px-4 py-1 rounded-lg hover:text-purple-600 hover:border-purple-600 mr-2"
