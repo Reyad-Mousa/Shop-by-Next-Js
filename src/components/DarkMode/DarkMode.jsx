@@ -11,7 +11,7 @@ export const DarkMode = () => {
       <div className={style.icon}>🌚</div>
       <div
         className={style.switcher}
-        style={mode === "light" ? { left: "3px" } : { right: "2px" }}
+        style={mode === "light" ? { left: "3px" } : { right: "3px" }}
       />
     </div>
   );
