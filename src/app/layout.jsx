@@ -15,9 +15,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ThemProvider>
+        <ThemProvider className="px-24">
           <Navbar />
-          <div className=" m-10 container flex  justify-center ">
+          <div className=" m-auto container flex  justify-center ">
             {children}
           </div>
           <Footer />
