@@ -2,13 +2,24 @@
 import Link from "next/link";
 import { DarkMode } from "../DarkMode/DarkMode";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { nav_links } from "./data";
 import SignPage from "./SignPage";
 function Navbar() {
   const [toggle, setToggle] = useState(false);
+  useEffect(() => {
+    // This code will run every time the toggle state changes
+    // You can use it to do things like update the DOM or fetch data
+  }, [toggle]);
+
   const handel = () => {
-    toggle(true);
+    // Update the toggle state
+    setToggle(true);
+
+    // Close the hamburger menu if it is open
+    if (toggle) {
+      setToggle(false);
+    }
   };
   return (
     <div className="container mx-auto px-4 font-sans w-full m-0">
