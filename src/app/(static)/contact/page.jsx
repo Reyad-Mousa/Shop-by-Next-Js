@@ -5,7 +5,7 @@ import style from "./page.module.css";
 function contact() {
   return (
     <div className="container my-12 mx-auto ">
-      <section className="mb-32">
+      <section className="mb-32 ">
         <div className="flex justify-center ">
           <div className="text-center md:max-w-xl lg:max-w-3xl">
             <h2 className="mb-12 px-6 text-3xl font-bold">Contact us</h2>
@@ -13,7 +13,7 @@ function contact() {
         </div>
 
         <div className="flex flex-wrap items-center">
-          <form className="mb-12 w-1/2 shrink-0 grow-0 basis-auto md:px-3 lg:mb-0  lg:px-6">
+          <form className="mb-12 w-full sm:w-1/2 shrink-0 grow-0 basis-auto md:px-3 lg:mb-0  p-6 lg:px-6">
             <div className="mb-3 w-full">
               <label
                 className="block font-medium mb-[2px] text-purple-700"
@@ -66,7 +66,7 @@ function contact() {
             </button>
           </form>
 
-          <div className="w-1/2 shrink-0 grow-0 basis-auto flex justify-end ">
+          <div className="w-1/2 shrink-0 grow-0 basis-auto sm:flex justify-end hidden">
             <Image
               // className={style.image}
               src="/images/contact.png"
@@ -78,7 +78,6 @@ function contact() {
           </div>
         </div>
 
-        
         <div className="flex flex-wrap">
           <div className="mb-12 w-full shrink-0 grow-0 basis-auto md:w-6/12  flex justify-center">
             <div className="flex items-start">

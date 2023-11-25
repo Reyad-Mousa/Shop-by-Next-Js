@@ -15,10 +15,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ThemProvider className="px-24">
-          <Navbar />
-          <div >{children}</div>
-          <Footer />
+        <ThemProvider>
+          {" "}
+          <div className=" px-8 bg">
+            <Navbar />
+            <div>{children}</div>
+            <Footer />
+          </div>
         </ThemProvider>
       </body>
     </html>
