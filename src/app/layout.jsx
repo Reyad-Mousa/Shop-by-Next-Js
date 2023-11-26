@@ -16,7 +16,6 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <ThemProvider>
-          {" "}
           <div className=" px-8 bg">
             <Navbar />
             <div>{children}</div>
