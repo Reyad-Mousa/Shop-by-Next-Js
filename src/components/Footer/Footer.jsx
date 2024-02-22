@@ -1,9 +1,10 @@
 import Image from "next/image";
 import { social_media } from "./data";
 import Link from "next/link";
+
 function Footer() {
   return (
-    <footer className=" font-sans w-full m-0 border-t ">
+    <footer className=" font-sans w-full m-0  bg-purple-950">
       <div className="container flex  justify-evenly w-64 mx-auto py-4 cursor-pointer	">
         {social_media.map((media) => (
           <Image

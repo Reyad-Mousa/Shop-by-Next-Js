@@ -1,136 +1,88 @@
 import Image from "next/image";
-import { MdOutlinePhoneCallback } from "react-icons/md";
-import { GiMoneyStack } from "react-icons/gi";
-import { IoBugOutline } from "react-icons/io5";
-import { BsJournalText } from "react-icons/bs";
-const dataForm = [
-  {
-    id: "Name",
-    Name: "Name",
-    type: "text",
-    placeholder: "Name",
-  },
+import Input from "postcss/lib/input";
+import Link from "next/link";
 
-  {
-    Name: "Email",
-    type: "email",
-    id: "Email",
-    placeholder: "Email",
-  },
-  {
-    Name: "Message",
-    type: "text",
-    id: "Message",
-    placeholder: "Message",
-  },
-];
-const dataContact = [
-  {
-    Image: <MdOutlinePhoneCallback />,
-    title: "Technical support",
-    email: "support@example.com",
-    number: "+1 123 456 7890",
-  },
-  {
-    Image: <GiMoneyStack />,
-
-    title: "Sales questions",
-    email: "sales@example.com",
-    number: "+1 123 456 7890",
-  },
-  {
-    Image: <BsJournalText />,
-    title: "Press",
-    email: "press@example.com",
-    number: "+1 123 456 7890",
-  },
-  {
-    Image: <IoBugOutline />,
-    title: "Bug report",
-    email: "bug@example.com",
-    number: "+1 123 456 7890",
-  },
-];
 function contact() {
   return (
-    <div className="container mx-auto ">
-      <section>
-        <div className="flex justify-center ">
-          <div className="text-center md:max-w-xl lg:max-w-3xl">
-            <h2 className="mb-12 px-6 text-3xl font-bold">Contact us</h2>
-          </div>
+    <div className="flex w-auto">
+      <div className=" max-lg:hidden w-auto">
+        <Image
+          className="w-auto "
+          src="/images/contact.png"
+          priority
+          width={500}
+          height={1000}
+          alt="Picture of the author"
+        />
+      </div>
+      <div
+        style={{
+          overflow: "hidden",
+          width: "-webkit-fill-available",
+        }}
+        className="w-auto px-12 py-10 bg-white flex-col justify-start items-center gap-10 inline-flex"
+      >
+        <div className="text-center text-slate-800 text-2xl font-bold font-['Montserrat'] leading-loose tracking-tight">
+          Book Appointment
         </div>
-
-        <div className="flex flex-wrap items-center">
-          <form className="mb-12 w-full sm:w-1/2 shrink-0 grow-0 basis-auto md:px-3 lg:mb-0  p-6 lg:px-6">
-            {dataForm.map((data) => (
-              <div key={data.Name} className="mb-3 w-full">
-                <label
-                  className="block font-medium mb-[2px] text-purple-700"
-                  htmlFor={data.id}
-                >
-                  {data.Name}
-                </label>
-                <input
-                  type={data.type}
-                  className="px-2 py-2 border w-full outline-none rounded-md"
-                  id={data.id}
-                  placeholder={data.placeholder}
-                />
-              </div>
-            ))}
-            <button
-              type="button"
-              className="mb-6 inline-block w-full rounded bg-purple-700 px-6 py-2.5 font-medium uppercase leading-normal text-white hover:shadow-md hover:bg-teal-500"
-            >
-              Send
-            </button>
-          </form>
-
-          <div className="w-1/2 shrink-0 grow-0 basis-auto sm:flex justify-end hidden">
-            <Image
-              src="/images/contact.png"
-              priority
-              width={500}
-              height={500}
-              alt="Picture of the author"
-            />
-          </div>
-        </div>
-
-        <div className="flex flex-wrap items-center ">
-          <div className="w-1/2 shrink-0 grow-0 basis-auto sm:flex justify-start hidden">
-            <Image
-              src="/images/contact2.png"
-              priority
-              width={500}
-              height={500}
-              alt="Picture of the author"
-            />
-          </div>
-          <div className="flex flex-wrap w-full md:w-1/2">
-            {dataContact.map((data) => (
-              <div
-                key={data.title}
-                className="mb-12 shrink-0 grow-0 basis-auto md:w-6/12  flex justify-center"
+        <div className="w-full max-w-xs">
+          <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            <div className="mb-4">
+              <label
+                className="block text-gray-700 text-sm font-bold mb-2"
+                for="username"
               >
-                <div className="flex items-start w-full md:w-full  md:p-6">
-                  <div className="shrink-0">
-                    <div className="inline-block rounded-md bg-teal-400-100 p-4 text-5xl text-purple-700">
-                      {data.Image}
-                    </div>
-                  </div>
-                  <div className="ml-6 grow">
-                    <p className="mb-2 font-bold">{data.title}</p>
-                    <p className="text-neutral-500 ">{data.email}</p>
-                    <p className="text-neutral-500 ">{data.number}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
+                Username
+              </label>
+              <input
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="username"
+                type="text"
+                placeholder="Username"
+              />
+            </div>
+            <div className="mb-6">
+              <label
+                className="block text-gray-700 text-sm font-bold mb-2"
+                for="password"
+              >
+                Password
+              </label>
+              <input
+                className="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                id="password"
+                type="password"
+                placeholder="******************"
+              />
+              <p className="text-red-500 text-xs italic">
+                Please choose a password.
+              </p>
+            </div>
+            <div className="flex items-center justify-between">
+              <button
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                type="button"
+              >
+                Sign In
+              </button>
+              <Link
+                className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
+                href="#"
+              >
+                Forgot Password?
+              </Link>
+            </div>
+          </form>
+          <p class="text-center text-gray-500 text-xs">
+            &copy;2020 Acme Corp. All rights reserved.
+          </p>
+        </div>{" "}
+        <div className="self-stretch h-12 px-10 py-3.5 bg-sky-500 rounded flex-col justify-start items-center gap-2.5 flex">
+          <div className="text-center text-white text-sm font-bold font-['Montserrat'] leading-snug tracking-tight">
+            Book Appointment
           </div>
         </div>
-      </section>
+      </div>
     </div>
   );
 }
