@@ -4,8 +4,16 @@ import { DarkMode } from "../DarkMode/DarkMode";
 import Image from "next/image";
 import { useState } from "react";
 import { nav_links } from "./data";
+import { FaShoppingCart } from "react-icons/fa";
+import { CartContext } from "../../context/CartContext";
+import { useContext } from "react";
+
+import Cart from "../Cart/Cart";
 function Navbar() {
   const [toggle, setToggle] = useState(false);
+  const { cart, setCart } = useContext(CartContext);
+
+  const [openCart, setOpenCart] = useState(false);
   return (
     <div className=" font-sans w-full m-0">
       <div>
@@ -42,6 +50,16 @@ function Navbar() {
               >
                 Sign up
               </Link>
+              <div
+                onClick={() => setOpenCart(!openCart)}
+                className=" relative cursor-pointer mx-4"
+              >
+                <FaShoppingCart className="text-purple-500 text-2xl " />
+                <h6 className="absolute top-[-12px] right-[-9px] z-10 bg-red-500 rounded-full items-center text-[14px] justify-center flex p-[11px] h-2 w-2">
+                {cart.length}
+                </h6>
+                {openCart && <Cart />}
+              </div>
             </div>
 
             <div className="sm:hidden cursor-pointer items-center flex justify-around w-24">
