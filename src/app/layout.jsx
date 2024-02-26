@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
         <body className={inter.className}>
           <ThemProvider>
             <Navbar />
-            <div className=" p-10 container flex  justify-center ">
+            <div className=" p-10  flex  justify-center  ">
               {children}
             </div>
             <Footer />

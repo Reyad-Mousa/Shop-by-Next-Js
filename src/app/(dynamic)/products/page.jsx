@@ -27,7 +27,7 @@ const Products = () => {
   };
 
   return (
-    <div className=" my-10 container flex flex-wrap gap-3 justify-center ">
+    <div className="grid grid-cols-4 gap-4 ">
       {products.map((product) => (
         <Link
           href={`/products/${product.id}`}
