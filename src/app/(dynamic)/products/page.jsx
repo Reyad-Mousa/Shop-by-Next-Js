@@ -27,9 +27,7 @@ const Products = () => {
   }, [cart]);
 
   const handleAddToCart = (product) => {
-    // Add the product to the cart using the provided `addToCart` function
     setCart((oldCart) => [...oldCart, product]);
-    // Optionally, provide feedback to the user (e.g., console log, visual cue)
     console.log(cart);
   };
 
