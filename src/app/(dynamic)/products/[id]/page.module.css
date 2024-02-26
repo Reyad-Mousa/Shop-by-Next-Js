@@ -3,10 +3,13 @@
     width: -webkit-fill-available !important;
     max-height: -webkit-fill-available !important;
     max-width: -webkit-fill-available !important;
+    /* min-height: 400px;
+    min-width: 400px; */
   }
 }
 .image {
-  max-height: 200px;
-  max-width: 200px;
-  width: 200px;
+  max-height: 400px;
+  max-width: 400px;
+  /* min-height: 400px;
+  min-width: 400px; */
 }
