@@ -5,7 +5,7 @@ import Link from "next/link";
 import styles from "./page.module.css";
 import { useContext, useEffect, useState } from "react";
 import { CartContext } from "@/context/CartContext";
-import { fetchProducts } from "../../api/fetchApi";
+import { addToCart, fetchProducts } from "../../api/fetchApi";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -23,13 +23,76 @@ const Products = () => {
   }, []);
 
   useEffect(() => {
-    console.log(cart);
+    // console.log(cart , "carttt");
   }, [cart]);
 
-  const handleAddToCart = (product) => {
-    setCart((oldCart) => [...oldCart, product]);
-    console.log(cart);
+  // fetch("https://dummyjson.com/carts/add", {
+  //   method: "POST",
+  //   headers: { "Content-Type": "application/json" },
+  //   body: JSON.stringify({
+  //     userId: 1,
+  //     products: [
+  //       {
+  //         id: 1,
+  //         quantity: 1,
+  //       },
+  //       {
+  //         id: cart.id,
+  //         quantity: 2,
+  //       },
+  //     ],
+  //   }),
+  // })
+  //   .then((res) => res.json())
+  //   .then(console.log);
+
+  // const handleAddToCart = (product) => {
+  //   setCart((oldCart) => [...oldCart, product]);
+  //   console.log(cart);
+  // };
+  // const handleAddToCart = async (product) => {
+  //   try {
+  //     const updatedCart = await addToCart(product);
+  //     setCart((oldCart) => [...oldCart, updatedCart]);
+  //     console.log(cart, "2222222");
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
+
+  const handleAddToCart = async (product) => {
+    try {
+      const response = await fetch("https://dummyjson.com/carts/add", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          userId: 1,
+          products: [
+            {
+              id: product.id,
+              quantity: 1,
+            },
+          ],
+        }),
+      });
+  
+      const data = await response.json();
+  
+      // Flatten the array of products
+      const flattenedProducts = data.products.flat();
+  
+      // Add the flattened products to the cart
+      setCart((oldCart) => [...oldCart, ...flattenedProducts]);
+  
+      // // Save the cart data to localStorage
+      // localStorage.setItem("cart", JSON.stringify(flattenedProducts));
+  
+      console.log(flattenedProducts, "hhhh");
+    } catch (error) {
+      console.error(error);
+    }
   };
+  
 
   return (
     <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4">
