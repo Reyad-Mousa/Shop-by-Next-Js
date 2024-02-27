@@ -2,9 +2,9 @@ import Link from "next/link";
 import { CartContext } from "../../context/CartContext";
 import { useContext } from "react";
 import Image from "next/image";
-const Cart = () => {
+const Cart = ({params}) => {
   const { cart, setCart } = useContext(CartContext);
-  console.log(cart, "cart");
+
   return (
     <div
       className="max-h-[25rem]  overflow-auto rounded-lg absolute right-0 top-12 w-max sm:w-screen max-w-sm border border-gray-600 bg-gray-800  px-4 py-8 sm:px-6 lg:px-8"
@@ -18,7 +18,6 @@ const Cart = () => {
         <ul className="space-y-4">
           {cart?.map((item) => (
             <Link
-              //   href="/"
               href={`products/${item?.id}`}
               key={item?.id}
               className="flex items-center gap-4"
