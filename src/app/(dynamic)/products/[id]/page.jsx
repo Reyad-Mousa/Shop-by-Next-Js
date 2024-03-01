@@ -1,12 +1,11 @@
 "use client";
 
 import Image from "next/image";
-// import styles from "./page.module.css";
 import Link from "next/link";
 import { fetchProductId } from "@/app/api/fetchApi";
 import { useEffect, useState } from "react";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
-
+ 
 const Product = ({ params }) => {
   const [productId, setProductId] = useState({});
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
