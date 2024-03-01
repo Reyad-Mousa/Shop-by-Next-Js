@@ -2,26 +2,32 @@ import Link from "next/link";
 import { CartContext } from "../../context/CartContext";
 import { useContext } from "react";
 import Image from "next/image";
-const Cart = ({params}) => {
+import { RiDeleteBinLine } from "react-icons/ri";
+const Cart = () => {
   const { cart, setCart } = useContext(CartContext);
 
+  function removeProductFromCart(productId, productTitle) {
+    const newCart = cart.filter(
+      (item) => item.id !== productId && item.title !== productTitle
+    );
+    setCart(newCart);
+    console.log(
+      `Product with ID ${productId} and title ${productTitle} removed from the cart.`
+    );
+  }
+
   return (
-    <div
-      className="max-h-[25rem]  overflow-auto rounded-lg absolute right-0 top-12 w-max sm:w-screen max-w-sm border border-gray-600 bg-gray-800  px-4 py-8 sm:px-6 lg:px-8"
-      aria-modal="true"
-      role="dialog"
-      tabIndex="-1"
-    >
+    <div className="max-h-[25rem]  z-50 overflow-auto rounded-lg absolute right-0 top-12 w-max sm:w-screen max-w-sm border border-gray-600 bg-gray-800  px-4 py-8 sm:px-6 lg:px-8">
       <span className=" z-20 absolute   right-2 top-[-2.2rem]  border-[1.1rem] border-gray-300 border-t-transparent border-r-transparent border-l-transparent "></span>
 
       <div className="mt-4 space-y-6">
         <ul className="space-y-4">
+          <span className="text-purple-500 right-0 absolute top-0 m-3  p-1 ">
+            X
+          </span>
+
           {cart?.map((item) => (
-            <Link
-              href={`products/${item?.id}`}
-              key={item?.id}
-              className="flex items-center gap-4"
-            >
+            <div key={item?.id} className="flex items-center gap-4">
               <Image
                 src={item?.thumbnail}
                 alt=""
@@ -36,9 +42,7 @@ const Cart = ({params}) => {
                 <dl className="mt-0.5 space-y-px text-[10px] text-gray-300">
                   <div>
                     <dt className="inline">Brand :</dt>
-                    <dd className="inline">
-                      {""} {item?.brand}
-                    </dd>
+                    <dd className="inline">{item?.brand}</dd>
                   </div>
 
                   <div>
@@ -49,22 +53,15 @@ const Cart = ({params}) => {
               </div>
 
               <div className="flex flex-1 items-center justify-end gap-2">
-                <form>
-                  <label htmlFor="Line1Qty" className="sr-only">
-                    {" "}
-                    Quantity{" "}
-                  </label>
-
-                  <input
-                    type="number"
-                    min="1"
-                    value="1"
-                    id="Line1Qty"
-                    className="h-8 w-12 rounded border-gray-200 bg-gray-50 p-0 text-center text-xs text-gray-600 [-moz-appearance:_textfield] focus:outline-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
-                  />
-                </form>
+                <RiDeleteBinLine
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    removeProductFromCart(item.id, item.title);
+                  }}
+                  className="hover:text-red-500 text-2xl"
+                />
               </div>
-            </Link>
+            </div>
           ))}
         </ul>
         <div className="space-y-4 text-center">
