@@ -13,8 +13,4 @@ export const fetchProductId = async (id) => {
   return res.data;
 };
 
-// export const addToCart = async (product) => {
-//   const res = await axios.post(`https://dummyjson.com/cart/`, product);
-//   // console.log(res, "Cart");
-//   return res.data;
-// };
+
