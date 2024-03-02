@@ -5,7 +5,7 @@ import Link from "next/link";
 import { fetchProductId } from "@/app/api/fetchApi";
 import { useEffect, useState } from "react";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
- 
+
 const Product = ({ params }) => {
   const [productId, setProductId] = useState({});
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -27,7 +27,7 @@ const Product = ({ params }) => {
     );
   };
   return (
-    <div className="  sm:grid sm:grid-cols-2 sm:px-3 h-screen gap-5  ">
+    <div className="  sm:grid sm:grid-cols-2 sm:px-3 h-screen gap-5 pt-20 ">
       <div className="flex justify-between items-center h-60 p-5  ">
         <FaAngleLeft
           className=" mr-3 bg-white h-20 text-black rounded-xl w-6 cursor-pointer"
@@ -39,8 +39,8 @@ const Product = ({ params }) => {
               className={` 
               h-48 w-48 max-w-48 sm:h-72 sm:w-72 md:w-full
                  rounded-xl ${
-                index === currentImageIndex ? "block" : "hidden"
-              }`}
+                   index === currentImageIndex ? "block" : "hidden"
+                 }`}
               key={image.length}
               src={image}
               priority

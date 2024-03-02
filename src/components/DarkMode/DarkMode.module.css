@@ -6,16 +6,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2px;
+  padding: 1px;
   position: relative;
   cursor: pointer;
 
 }
 .icon {
-  font-size: 18px;
+  font-size: 17px;
 }
 .switcher {
-  width: 20px;
+  width: 19px;
   aspect-ratio: 1/1;
   background-color: purple;
   border-radius: 50%;

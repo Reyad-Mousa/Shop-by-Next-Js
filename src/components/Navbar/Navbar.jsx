@@ -14,8 +14,11 @@ function Navbar() {
   const { cart, setCart } = useContext(CartContext);
 
   const [openCart, setOpenCart] = useState(false);
+  const handelToggle = (e) => {
+    setToggle(!toggle);
+  };
   return (
-    <div className=" font-sans w-full m-0">
+    <div className=" font-sans w-full m-0 fixed  bg-inherit  z-50  shadow-md ">
       <div>
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between py-4">
@@ -56,13 +59,23 @@ function Navbar() {
               >
                 <FaShoppingCart className="text-purple-500 text-2xl " />
                 <h6 className="absolute top-[-12px] right-[-9px] z-10 bg-red-500 rounded-full items-center text-[14px] justify-center flex p-[11px] h-2 w-2">
-                {cart.length}
+                  {cart.length}
                 </h6>
                 {openCart && <Cart />}
               </div>
             </div>
 
-            <div className="sm:hidden cursor-pointer items-center flex justify-around w-24">
+            <div className="sm:hidden cursor-pointer items-center flex  gap-3 ">
+              <div
+                onClick={() => setOpenCart(!openCart)}
+                className=" relative cursor-pointer  "
+              >
+                <FaShoppingCart className="text-purple-500 text-2xl " />
+                <h6 className="absolute top-[-12px] right-[-9px] z-10 bg-red-500 rounded-full items-center text-[14px] justify-center flex p-[11px] h-2 w-2">
+                  {cart.length}
+                </h6>
+                {openCart && <Cart />}
+              </div>
               <DarkMode />
               <Image
                 src="/images/list.png"
@@ -70,37 +83,23 @@ function Navbar() {
                 priority
                 height={30}
                 alt="Picture of the author"
-                onClick={() => setToggle(!toggle)}
+                onClick={() => handelToggle()}
               />
             </div>
           </div>
           {toggle && (
             <div className=" sm:hidden  border-t-2 border-purple-300 py-2">
-              <div className="flex flex-col-reverse divide-y divide-y-reverse">
-                <Link
-                  href="#"
-                  className="text-white-800 text-sm font-semibold hover:text-purple-600 mb-1"
-                >
-                  Products
-                </Link>
-                <Link
-                  href="#"
-                  className="text-white-800 text-sm font-semibold hover:text-purple-600 mb-1"
-                >
-                  Marketplace
-                </Link>
-                <Link
-                  href="#"
-                  className="text-white-800 text-sm font-semibold hover:text-purple-600 mb-1"
-                >
-                  Partners
-                </Link>
-                <Link
-                  href="#"
-                  className="text-white-800 text-sm font-semibold hover:text-purple-600 mb-1"
-                >
-                  Pricing
-                </Link>
+              <div className="flex flex-col ">
+                {nav_links.map((links) => (
+                  <Link
+                    onClick={() => handelToggle()}
+                    key={links.id}
+                    href={links.href}
+                    className="text-white-800 p-2  text-sm font-semibold hover:text-purple-600 mr-4"
+                  >
+                    {links.title}
+                  </Link>
+                ))}
               </div>
               <div className="flex justify-end items-center border-t-2 pt-2">
                 <Link
