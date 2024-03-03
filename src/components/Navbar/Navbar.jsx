@@ -7,14 +7,16 @@ import { nav_links } from "./data";
 import { FaShoppingCart } from "react-icons/fa";
 import { CartContext } from "../../context/CartContext";
 import { useContext } from "react";
-
+import { usePathname } from "next/navigation";
 import Cart from "../Cart/Cart";
-function Navbar() {
+function Navbar({ params }) {
+  const pathname = usePathname();
+
   const [toggle, setToggle] = useState(false);
   const { cart, setCart } = useContext(CartContext);
 
   const [openCart, setOpenCart] = useState(false);
-  const handelToggle = (e) => {
+  const handelToggle = () => {
     setToggle(!toggle);
   };
   return (
@@ -33,7 +35,9 @@ function Navbar() {
                 <Link
                   key={links.id}
                   href={links.href}
-                  className="text-white-800 text-sm font-semibold hover:text-purple-600 mr-4"
+                  className={`${
+                    pathname === links.href ? "text-purple-600" : ""
+                  } text-white-800 text-sm font-semibold hover:text-purple-600 mr-4`}
                 >
                   {links.title}
                 </Link>
@@ -95,7 +99,9 @@ function Navbar() {
                     onClick={() => handelToggle()}
                     key={links.id}
                     href={links.href}
-                    className="text-white-800 p-2  text-sm font-semibold hover:text-purple-600 mr-4"
+                    className={`${
+                      pathname === links.href ? "text-purple-600" : ""
+                    } text-white-800 p-2  text-sm font-semibold hover:text-purple-600 mr-4`}
                   >
                     {links.title}
                   </Link>
