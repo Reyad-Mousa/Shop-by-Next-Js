@@ -9,7 +9,6 @@ export const fetchProducts = async () => {
 export const fetchProductId = async (id) => {
   const res = await axios.get(`https://dummyjson.com/products/${id}`);
 
-  console.log(res, "Product");
   return res.data;
 };
 

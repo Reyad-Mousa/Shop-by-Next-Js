@@ -26,8 +26,12 @@ const Cart = () => {
             X
           </span>
 
-          {cart?.map((item) => (
-            <div key={item?.id} className="flex items-center gap-4">
+          {cart?.map((item, index) => (
+            <Link
+              href={`products/${item?.id}`}
+              key={index}
+              className="flex items-center gap-4"
+            >
               <Image
                 src={item?.thumbnail}
                 alt=""
@@ -61,7 +65,7 @@ const Cart = () => {
                   className="hover:text-red-500 text-2xl"
                 />
               </div>
-            </div>
+            </Link>
           ))}
         </ul>
         <div className="space-y-4 text-center">
