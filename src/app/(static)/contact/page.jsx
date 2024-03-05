@@ -101,7 +101,7 @@ function contact() {
         </div>
 
         <div className="flex flex-wrap items-center ">
-          <div className="w-1/2 shrink-0 grow-0 basis-auto sm:flex justify-start hidden">
+          <div className="w-1/2 shrink-0 grow-0 basis-auto lg:flex justify-start hidden">
             <Image
               src="/images/contact2.png"
               priority
@@ -110,7 +110,7 @@ function contact() {
               alt="Picture of the author"
             />
           </div>
-          <div className="flex flex-wrap w-full md:w-1/2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 items-center justify-center w-full lg:w-1/2">
             {dataContact.map((data) => (
               <div
                 key={data.title}
