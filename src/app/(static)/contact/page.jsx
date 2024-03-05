@@ -55,85 +55,83 @@ const dataContact = [
 
 function contact() {
   return (
-    <div className="container mx-auto pt-20 ">
-      <section>
-        <div className="flex justify-center ">
-          <div className="text-center md:max-w-xl lg:max-w-3xl">
-            <h2 className="mb-12 px-6 text-3xl font-bold">Contact us</h2>
-          </div>
+    <section className="container mx-auto pt-20 pm-[-1200px]">
+      <div className="flex justify-center ">
+        <div className="text-center md:max-w-xl lg:max-w-3xl">
+          <h2 className="mb-12 px-6 text-3xl font-bold">Contact us</h2>
         </div>
+      </div>
 
-        <div className="flex flex-wrap items-center">
-          <form className="mb-12 w-full sm:w-1/2 shrink-0 grow-0 basis-auto md:px-3 lg:mb-0  p-6 lg:px-6">
-            {dataForm.map((data) => (
-              <div key={data.Name} className="mb-3 w-full">
-                <label
-                  className="block font-medium mb-[2px] text-purple-700"
-                  htmlFor={data.id}
-                >
-                  {data.Name}
-                </label>
-                <input
-                  type={data.type}
-                  className="px-2 py-2 border w-full outline-none rounded-md"
-                  id={data.id}
-                  placeholder={data.placeholder}
-                />
-              </div>
-            ))}
-            <button
-              type="button"
-              className="mb-6 inline-block w-full rounded bg-purple-700 px-6 py-2.5 font-medium uppercase leading-normal text-white hover:shadow-md hover:bg-teal-500"
-            >
-              Send
-            </button>
-          </form>
-
-          <div className="w-1/2 shrink-0 grow-0 basis-auto sm:flex justify-end hidden">
-            <Image
-              src="/images/contact.png"
-              priority
-              width={500}
-              height={500}
-              alt="Picture of the author"
-            />
-          </div>
-        </div>
-
-        <div className="flex flex-wrap items-center ">
-          <div className="w-1/2 shrink-0 grow-0 basis-auto lg:flex justify-start hidden">
-            <Image
-              src="/images/contact2.png"
-              priority
-              width={500}
-              height={500}
-              alt="Picture of the author"
-            />
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 items-center justify-center w-full lg:w-1/2">
-            {dataContact.map((data) => (
-              <div
-                key={data.title}
-                className="mb-12 shrink-0 grow-0 basis-auto md:w-6/12  flex justify-center"
+      <div className="flex flex-wrap items-center">
+        <form className="mb-12 w-full sm:w-1/2 shrink-0 grow-0 basis-auto md:px-3 lg:mb-0  p-6 lg:px-6">
+          {dataForm.map((data) => (
+            <div key={data.Name} className="mb-3 w-full">
+              <label
+                className="block font-medium mb-[2px] text-purple-700"
+                htmlFor={data.id}
               >
-                <div className="flex items-start w-full md:w-full  md:p-6">
-                  <div className="shrink-0">
-                    <div className="inline-block  rounded-md bg-teal-400-100 p-4 text-5xl text-purple-700">
-                      {data.Image}
-                    </div>
-                  </div>
-                  <div className="ml-6 grow ">
-                    <p className="mb-2 font-bold">{data.title}</p>
-                    <p className="text-neutral-500 ">{data.email}</p>
-                    <p className="text-neutral-500 ">{data.number}</p>
+                {data.Name}
+              </label>
+              <input
+                type={data.type}
+                className="px-2 py-2 border w-full outline-none rounded-md"
+                id={data.id}
+                placeholder={data.placeholder}
+              />
+            </div>
+          ))}
+          <button
+            type="button"
+            className="mb-6 inline-block w-full rounded bg-purple-700 px-6 py-2.5 font-medium uppercase leading-normal text-white hover:shadow-md hover:bg-teal-500"
+          >
+            Send
+          </button>
+        </form>
+
+        <div className="w-1/2 shrink-0 grow-0 basis-auto sm:flex justify-end hidden">
+          <Image
+            src="/images/contact.png"
+            priority
+            width={500}
+            height={500}
+            alt="Picture of the author"
+          />
+        </div>
+      </div>
+
+      <div className="flex flex-wrap items-center ">
+        <div className="w-1/2 shrink-0 grow-0 basis-auto lg:flex justify-start hidden">
+          <Image
+            src="/images/contact2.png"
+            priority
+            width={500}
+            height={500}
+            alt="Picture of the author"
+          />
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 items-center justify-center w-full lg:w-1/2">
+          {dataContact.map((data) => (
+            <div
+              key={data.title}
+              className="mb-12 shrink-0 grow-0 basis-auto md:w-6/12  flex justify-center"
+            >
+              <div className="flex items-start w-full md:w-full  md:p-6">
+                <div className="shrink-0">
+                  <div className="inline-block  rounded-md bg-teal-400-100 p-4 text-5xl text-purple-700">
+                    {data.Image}
                   </div>
                 </div>
+                <div className="ml-6 grow ">
+                  <p className="mb-2 font-bold">{data.title}</p>
+                  <p className="text-neutral-500 ">{data.email}</p>
+                  <p className="text-neutral-500 ">{data.number}</p>
+                </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 }
 
