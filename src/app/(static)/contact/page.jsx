@@ -55,7 +55,7 @@ const dataContact = [
 
 function contact() {
   return (
-    <section className="container mx-auto pt-20 pm-[-1200px]">
+    <section className="container mx-auto pt-20 ">
       <div className="flex justify-center ">
         <div className="text-center md:max-w-xl lg:max-w-3xl">
           <h2 className="mb-12 px-6 text-3xl font-bold">Contact us</h2>
