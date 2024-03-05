@@ -4,8 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 const Card = ({ products, handleAddToCart }) => {
   return (
-    <div className="grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4    ">
-      {products.map((product) => (
+    <div className="grid  xl:grid-cols-5  md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6 ">
+    {products.map((product) => (
         <div
           key={product.id}
           className="flex-3 flex flex-col border-2 rounded-2xl border-purple-900 w-64"
