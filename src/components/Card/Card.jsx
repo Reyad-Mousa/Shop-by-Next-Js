@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 const Card = ({ products, handleAddToCart }) => {
   return (
-    <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4    ">
+    <div className="grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4    ">
       {products.map((product) => (
         <div
           key={product.id}
@@ -18,7 +18,7 @@ const Card = ({ products, handleAddToCart }) => {
               width="1000"
               height="0"
               alt="Picture of the author"
-              style={{ maxHeight: "200px", height: "200px", width: "auto" }}
+              style={{ maxHeight: "200px", height: "200px"}}
             />
           </Link>
           <div className="p-4 md:p-5">
