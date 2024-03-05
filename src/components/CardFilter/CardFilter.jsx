@@ -70,14 +70,13 @@ const CardFilter = () => {
   const uniqueCategories = Array.from(
     new Set(products.map((item) => item.category))
   );
-  console.log(category, "unique categories");
 
   return (
     <CardFilterContext.Provider value={{ setCategory, category }}>
-      <div id="cardFilter" className=" pt-20">
+      <div id="cardFilter" className=" pt-20 grid justify-center items-center">
         <FilterBtn uniqueCategories={uniqueCategories} />
 
-        <div className="grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4 ">
+        <div className="grid  xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6 ">
           {filteredData.map((product) => (
             <div
               key={product.id}
